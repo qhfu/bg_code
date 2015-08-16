@@ -1,0 +1,14 @@
+@(tag: String, posts:Array[Post]) @main{
+<div>
+	@for(post <- posts) {
+	<div class="blog-post-summary well">
+		<h2>
+			<a href=posts?id=@post.id>@post.title</a>
+		</h2>
+		<p class="blog-post-meta">@post.date</p>
+		<p>@post.summary</p>
+		</hr>
+	</div>
+	}
+</div>
+}

@@ -1,0 +1,22 @@
+@(postName:String)
+
+@import java.util.Date;
+<form>
+	<label>Create Comments</label>
+	<div class="form-group">
+		<label for="inputName">Name</label> <input class="form-control"
+			name="name" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<label for="inputEmail">Email</label> <input type="email"
+			class="form-control" name="email" placeholder="Email">
+	</div>
+	<div class="form-group">
+		<textarea class="form-control" rows="3" name="content"
+			placeholder="Enter your comments here"></textarea>
+	</div>
+	<input type="hidden" name="postName" value="@postName">
+	<input type="hidden" name="postDate" value="@(new Date())">
+	<button class="fa fa-comment btn btn-primary pull-right" type="submit">Post
+		Comment</button>
+</form>

@@ -1,0 +1,15 @@
+@(latestPosts:Array[Post]) @main{
+<div>
+	@for(post <- latestPosts) {
+	<div class="blog-post-summary">
+		<h3>
+			<a href="/post/@post.id">@post.title</a>
+		</h3>
+		<p>@post.summary</p>
+		<p>
+			<span class="fa fa-clock-o"></span>@post.date
+		</p>
+	</div>
+	}
+</div>
+}

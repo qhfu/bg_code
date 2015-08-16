@@ -1,0 +1,67 @@
+@(post: Post, comments:List[Comment]) 
+
+@import helper._
+
+@main{
+<article>
+	<h1>@post.title</h1>
+	<div class="row">
+		<div class="group1 col-sm-6 col-md-6">
+			<span class="glyphicon glyphicon-time blog-post-meta"></span>@post.date
+			<span class="fa fa-tags fa-fw"></span> Tags : 
+			<a class="tag label label-default" href="/">Java</a> 
+			<a class="tag label label-default" href="/">Algorithm</a>
+		</div>
+	</div>
+	<hr>
+	@Html(post.content)
+	<div class="container">
+	   <div class="row comment_header"><span>Have</span><b> 5 </b> <span>Comments</span></div>
+	   <div class="comment">
+	       <ul>
+	           @for(comment <- comments) {
+	               <div class="comment_image"><img src="@routes.Assets.at("images/head.jpeg")" width="50px" height="50px"/></div>
+                   <div class="comment_body">
+                       <div class="comment_label">
+                           <span class="comment_author"><b>@comment.name</b></span><span class="fa fa-clock-o comment_date">@comment.date</span>
+                       </div>
+                       <div class="comment_content">
+                           <p>@comment.content</p>
+                       </div>
+                   </div>
+	           }
+	       </ul>
+	   </div>
+<!-- 	   <div class="comment">
+	       <ul>
+	           <li>
+	               <div class="comment_image"><i class="fa fa-pencil"></i></div>
+	               <div class="comment_body">
+	                   <div class="comment_label">
+	                       <span class="comment_author"><b>Fu, Qinghai</b></span><span class="fa fa-clock-o comment_date">2015-02-01</span>
+	                   </div>
+	                   <div class="comment_content">
+	                       <p>What is the comment?????jksldfjsalkfjslkfajdfkls;aklsjdlfk sdfni ni hoam a? sdfniwesf</p>
+	                   </div>
+	               </div>
+	           </li>
+	           <li>
+                   <div class="comment_image"><i class="fa fa-pencil"></i></div>
+                   <div class="comment_body">
+                       <div class="comment_label">
+                           <span class="comment_author"><b>Fu, Qinghai</b></span><span class="fa fa-clock-o comment_date">2015-02-01</span>
+                       </div>
+                       <div class="comment_content">
+                           <p>What is the comment?????jksldfjsalkfjslkfajdfkls;aklsjdlfk sdfni ni hoam a? sdfniwesf</p>
+                       </div>
+                   </div>
+               </li>
+	       </ul>
+	   </div>
+	</div>  -->
+    @form(action = routes.Application.comment()) {
+        @comment(post.date)
+    }
+    </div>
+</article>
+}
